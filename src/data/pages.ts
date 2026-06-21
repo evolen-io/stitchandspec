@@ -328,25 +328,211 @@ export const researchPages: ResearchPage[] = [
   }
 ];
 
-const remaining = [
-  ['embroidery-thread-types','Embroidery Thread Types','Polyester thread is durable and colorfast; rayon has sheen but less abrasion resistance; cotton is niche. Use thread based on wear, finish, and machine behavior.','What embroidery thread type is best?','embroidery-basics'],
-  ['embroidery-software-for-beginners','Embroidery Software for Beginners','Beginners need software for resizing, lettering, format conversion, and eventually digitizing. Do not buy expensive digitizing software until you know your project workflow.','Do I need embroidery software?','software'],
-  ['embroidery-file-formats','Embroidery File Formats','Embroidery machines use stitch files such as PES, DST, JEF, EXP, and VP3. The right format depends on machine brand and software workflow.','What embroidery file format does my machine need?','software'],
-  ['best-sewing-machine-for-bag-making','Best Sewing Machine for Bag Making','Bag making needs piercing power, feed control, presser-foot clearance, and straight-stitch quality more than built-in decorative stitches.','What machine is best for sewing bags?','materials'],
-  ['best-machine-for-cosplay','Best Machine for Cosplay','Cosplay makers usually need a versatile sewing machine first, then add a serger, embroidery machine, or heavy-duty machine based on foam, stretch, or detail work.','What sewing machine should I buy for cosplay?','projects'],
-  ['sewing-machine-for-alterations','Sewing Machine for Alterations','Alterations need reliability, buttonholes, zipper handling, hem stitches, and fabric versatility; most beginners do not need embroidery for alterations.','What sewing machine is best for alterations?','projects'],
-  ['automatic-vs-computerized-sewing-machine','Mechanical vs Computerized Sewing Machine','Mechanical machines are simpler and durable; computerized machines add speed control, needle positioning, and stitch memory. Choose based on comfort and repair expectations.','Should I buy a mechanical or computerized sewing machine?','machine-types'],
-  ['sewing-machine-maintenance','Sewing Machine Maintenance Basics','Lint removal, correct needle replacement, fresh thread, and professional service intervals prevent many stitch-quality problems. Do not oil a machine unless the manual says to.','How do I maintain a sewing machine?','troubleshooting'],
-  ['used-vs-new-sewing-machine','Used vs New Sewing Machine','Used machines can be excellent values if serviced and complete; new machines are safer for beginners who need warranty, support, and return options.','Should I buy a used or new sewing machine?','buying'],
-  ['sewing-machine-warranty-and-service','Sewing Machine Warranty and Service','Warranty and local service access matter because sewing machines are mechanical tools. A slightly less flashy machine from a serviceable brand can be the better long-term buy.','How important is warranty and service access?','buying']
-] as const;
-
-for (const [slug,title,bluf,buyerQuestion,cluster] of remaining) {
-  researchPages.push({
-    slug, title, bluf, buyerQuestion, intent: 'learn', cluster, lastUpdated: '2026-06-20',
-    comparisons: [], sources: [{ label: 'Manufacturer documentation and retailer specifications', url: 'https://www.brother-usa.com/support' }],
-    nextQuestions: ['best-sewing-embroidery-machine-for-beginners','embroidery-hoop-size-explained','brother-se700-vs-se2000'],
-    faq: [{ q: buyerQuestion, a: bluf }],
-    sections: [{ heading: 'Research status', body: 'This page is part of the initial Stitch & Spec buyer-question graph. It has a direct answer and internal links, but still needs the next source-backed expansion pass before affiliate applications.' }]
-  });
-}
+researchPages.push(
+  {
+    slug: 'embroidery-thread-types', title: 'Embroidery Thread Types',
+    bluf: 'Polyester embroidery thread is the safest default for most beginners because it is durable, colorfast, and forgiving on washable items. Rayon has a softer shine but is less abrasion-resistant, cotton gives a matte heirloom look, and metallic thread is decorative but more finicky.',
+    buyerQuestion: 'What embroidery thread type is best?', intent: 'learn', cluster: 'embroidery-basics', lastUpdated: '2026-06-21',
+    recommendation: 'Start with quality 40-weight polyester embroidery thread in a small palette. Add rayon, cotton, or metallic only when the project specifically needs that finish.',
+    table: { columns: ['Thread type','Best use','Watch-out'], rows: [
+      ['Polyester embroidery thread','Shirts, towels, bags, kids items, washable gifts','Cheap thread can still shred; buy reputable spools.'],
+      ['Rayon embroidery thread','High-sheen decorative work','Less abrasion and bleach resistance than polyester.'],
+      ['Cotton embroidery thread','Matte heirloom or vintage-style work','More lint and less shine; not the default for dense designs.'],
+      ['Metallic thread','Accents, holiday designs, decorative details','Needs slower speed, correct needle, and careful tension.']
+    ]},
+    sections: [
+      { heading: 'Thread choice is a durability decision', body: 'Beginners often choose thread by color first, but use case matters more. A shirt, towel, or tote may be washed repeatedly, so durability and colorfastness matter. Decorative wall art can prioritize sheen or texture instead.' },
+      { heading: 'Weight and needle matter together', body: 'Many machine embroidery designs assume common 40-weight embroidery thread. If thread is heavier, specialty, or metallic, the buyer may need a different needle and slower stitching to prevent shredding or breaks.' },
+      { heading: 'Do not buy huge thread sets first', body: 'Large bargain thread kits look efficient, but poor thread creates false machine problems. A smaller set of reliable colors plus black, white, and stabilizer is a better first purchase.' }
+    ],
+    sources: [{ label: 'Brother fabric/thread/needle matching guidance', url: 'https://help.brother-usa.com/app/answers/detail/a_id/144041/~/combination-of-fabric,-thread,-and-needle-to-use' }, { label: 'Brother stabilizer and embroidery workflow context', url: 'https://sewingcraft.brother.eu/en/blog/embroidery/2022/an-introduction-to-stabilisers-for-machine-embroidery' }],
+    nextQuestions: ['what-supplies-do-you-need-for-machine-embroidery','sewing-machine-needle-sizes','embroidery-stabilizer-guide'],
+    faq: [{ q: 'Is polyester or rayon better for embroidery?', a: 'Polyester is the better beginner default for washable projects. Rayon is useful when sheen matters more than durability.' }, { q: 'What thread weight should beginners buy?', a: 'Most beginners should start with standard 40-weight embroidery thread unless a design or machine manual specifies otherwise.' }]
+  },
+  {
+    slug: 'embroidery-software-for-beginners', title: 'Embroidery Software for Beginners',
+    bluf: 'Beginners do not need expensive digitizing software on day one. They need a simple workflow for reading designs, checking hoop size, resizing safely, adding lettering, and exporting the file format their machine accepts.',
+    buyerQuestion: 'Do I need embroidery software?', intent: 'learn', cluster: 'software', lastUpdated: '2026-06-21',
+    recommendation: 'Start with the machine’s included app or a basic editing program. Buy full digitizing software only after you know you will create original designs, not just stitch purchased files.',
+    table: { columns: ['Software need','Beginner priority','Why'], rows: [
+      ['View design and hoop fit','High','Prevents buying or loading designs that do not fit the machine field.'],
+      ['Resize modestly','High','Small safe changes are common; large resizing can distort stitch density.'],
+      ['Add names/lettering','Medium to high','Useful for gifts and monograms.'],
+      ['Convert file formats','Medium','Helpful when designs are not supplied in your machine format.'],
+      ['Digitize artwork from scratch','Low at first','Powerful but expensive and skill-heavy.']
+    ]},
+    sections: [
+      { heading: 'Editing is not the same as digitizing', body: 'Editing software changes existing embroidery files: resizing, rotating, combining, adding text, or changing colors. Digitizing software converts artwork into stitch instructions. Digitizing is a separate craft and should not be treated as a required beginner purchase.' },
+      { heading: 'Hoop preview is the first useful feature', body: 'The software should show whether a design fits the machine’s field. This matters especially for 4 x 4 machines, because many purchased designs assume larger hoops.' },
+      { heading: 'Wireless apps do not replace understanding files', body: 'Brother’s newer machines and Artspira-style workflows can simplify transfer, but buyers still need to understand hoop size, file type, and design density.' }
+    ],
+    sources: [{ label: 'Brother SE700 product page references wireless LAN and design transfer ecosystem', url: 'https://www.brother-usa.com/products/se700' }, { label: 'Brother support resources', url: 'https://www.brother-usa.com/support' }],
+    nextQuestions: ['embroidery-file-formats','embroidery-hoop-size-explained','brother-se700-vs-se2000'],
+    faq: [{ q: 'Do I need digitizing software immediately?', a: 'No. Most beginners can start by stitching purchased or built-in designs and using basic editing/transfer tools.' }, { q: 'Can I resize embroidery designs freely?', a: 'Only modestly. Large resizing can change stitch density and cause poor results unless the design is recalculated properly.' }]
+  },
+  {
+    slug: 'embroidery-file-formats', title: 'Embroidery File Formats',
+    bluf: 'Embroidery file format is the machine-readable stitch file. Brother users commonly look for PES files; DST is common in commercial workflows but may not preserve consumer-friendly color information the same way. Always match the file format, hoop size, and stitch count to the machine before buying a design.',
+    buyerQuestion: 'What embroidery file format does my machine need?', intent: 'learn', cluster: 'software', lastUpdated: '2026-06-21',
+    recommendation: 'For Brother home embroidery machines, look for PES first when buying designs. Keep DST as a useful commercial/common format, but verify color sequence and machine compatibility before stitching.',
+    table: { columns: ['Format','Common role','Beginner note'], rows: [
+      ['PES','Brother/Baby Lock home embroidery ecosystem','Often the safest first choice for Brother home users.'],
+      ['DST','Commercial Tajima-style stitch format','Widely used, but color data may be less beginner-friendly.'],
+      ['JEF','Janome embroidery format','Useful only if your machine supports it.'],
+      ['EXP / VP3 / HUS','Other brand ecosystems','Match to machine brand and manual.']
+    ]},
+    sections: [
+      { heading: 'A design image is not an embroidery file', body: 'PNG, JPG, and SVG files are artwork formats. An embroidery machine needs stitch instructions: movement, stitch order, trims, and color changes. That is why downloading a picture is not enough.' },
+      { heading: 'Format does not override hoop size', body: 'A PES file can still be too large for a 4 x 4 machine. Buyers should confirm both the file type and the design dimensions before purchasing or transferring a design.' },
+      { heading: 'Conversion has limits', body: 'Software can convert many embroidery formats, but conversion does not magically fix density, size, or poor digitizing. Test stitch important designs before using final blanks.' }
+    ],
+    sources: [{ label: 'Brother support resources for machine-specific file handling', url: 'https://www.brother-usa.com/support' }, { label: 'Brother SE700 product page and transfer context', url: 'https://www.brother-usa.com/products/se700' }],
+    nextQuestions: ['embroidery-software-for-beginners','embroidery-hoop-size-explained','what-supplies-do-you-need-for-machine-embroidery'],
+    faq: [{ q: 'Can I use a JPG or PNG on an embroidery machine?', a: 'Not directly. Artwork must be digitized into an embroidery stitch file before the machine can stitch it.' }, { q: 'Is PES the only Brother format?', a: 'PES is the common Brother home-machine format to look for first, but exact compatibility depends on the specific model and manual.' }]
+  },
+  {
+    slug: 'best-sewing-machine-for-bag-making', title: 'Best Sewing Machine for Bag Making',
+    bluf: 'Bag making needs piercing power, stable feeding, presser-foot clearance, strong straight stitch quality, and the right needles. Decorative stitches and embroidery features matter less than whether the machine can cross bulky seams without deflecting the needle or stalling.',
+    buyerQuestion: 'What machine is best for sewing bags?', intent: 'choose', cluster: 'materials', lastUpdated: '2026-06-21',
+    recommendation: 'For occasional totes, a strong domestic machine may be enough. For waxed canvas, leather, foam, or repeated production bags, compare walking-foot industrial options before buying another computerized domestic machine.',
+    table: { columns: ['Bag material','Machine direction','Why'], rows: [
+      ['Quilting cotton totes','Domestic sewing machine','Low bulk and easy feeding.'],
+      ['Canvas or denim bags','Heavy-duty domestic or semi-industrial','Needs stronger feed and needle support.'],
+      ['Foam, vinyl, leather layers','Walking-foot industrial path','Layer slippage and bulk become the problem.'],
+      ['Production bag selling','Industrial setup plus service plan','Throughput and downtime matter.']
+    ]},
+    sections: [
+      { heading: 'Bag seams stack up quickly', body: 'A machine may sew one layer of canvas but struggle at handles, boxed corners, zippers, webbing, or foam. Buyers should think about the thickest seam intersection, not the average fabric layer.' },
+      { heading: 'Feed mechanism matters', body: 'Standard feed dogs can shift layered materials. Walking-foot systems help move top and bottom layers together, which is why they become important for heavier bags and slippery materials.' },
+      { heading: 'Needles and thread are part of the machine choice', body: 'A bag-making setup often uses heavier needles and stronger thread. The machine must support that combination without skipped stitches, thread shredding, or tension problems.' }
+    ],
+    sources: [{ label: 'Brother fabric/thread/needle support guidance', url: 'https://help.brother-usa.com/app/answers/detail/a_id/144041/~/combination-of-fabric,-thread,-and-needle-to-use' }, { label: 'SINGER Heavy Duty 4452 heavy fabric reference', url: 'https://www.singer.com/en-ca/products/singer-heavy-duty-4452-sewing-machine' }, { label: 'Sewing Machines Plus commercial/industrial category', url: 'https://sewingmachinesplus.com/' }],
+    nextQuestions: ['sewing-machine-for-denim-and-canvas','industrial-vs-domestic-sewing-machine','sewing-machine-needle-sizes'],
+    faq: [{ q: 'Can I make bags on a regular sewing machine?', a: 'Yes for light totes and low-bulk projects. For heavy canvas, leather, foam, or production work, the machine may become the limit.' }]
+  },
+  {
+    slug: 'best-machine-for-cosplay', title: 'Best Machine for Cosplay',
+    bluf: 'Most cosplay makers should start with a versatile sewing machine, then add specialty machines only when the project demands them. A serger helps with stretch costumes, an embroidery machine helps with emblems and detail, and a heavy-duty machine helps with vinyl, canvas, and layered props.',
+    buyerQuestion: 'What sewing machine should I buy for cosplay?', intent: 'choose', cluster: 'projects', lastUpdated: '2026-06-21',
+    recommendation: 'Buy a reliable computerized or mechanical sewing machine first. Add a serger, embroidery machine, or heavy-duty/industrial machine based on the materials you actually use most.',
+    table: { columns: ['Cosplay need','Machine/tool direction','Why'], rows: [
+      ['General costumes','Versatile sewing machine','Handles seams, hems, zippers, and adjustments.'],
+      ['Stretch suits / knits','Serger plus sewing machine','Cleaner stretch seams and faster finishing.'],
+      ['Patches, symbols, emblems','Embroidery machine','Adds repeatable decorative detail.'],
+      ['Armor straps, vinyl, canvas','Heavy-duty domestic or industrial','Needs piercing power and feed stability.']
+    ]},
+    sections: [
+      { heading: 'Cosplay is multiple niches in one', body: 'A cosplay build can include garment sewing, stretch fabrics, foam, vinyl, appliqué, embroidery, leather-like materials, and alterations. No single beginner machine is best at all of those.' },
+      { heading: 'Versatility beats specialization at first', body: 'The first machine should handle common construction tasks: straight stitch, zigzag, buttonholes, zippers, and hems. Specialty machines are easier to choose after the maker knows their recurring materials.' },
+      { heading: 'Embroidery is useful but not essential', body: 'Embroidery can make patches and symbols look professional, but it is not the foundation of costume construction. Buy it after confirming embroidered detail is a repeated need.' }
+    ],
+    sources: [{ label: 'Brother sewing and embroidery category', url: 'https://www.brother-usa.com/home/sewing-embroidery' }, { label: 'SINGER heavy-duty machine reference', url: 'https://www.singer.com/en-ca/products/singer-heavy-duty-4452-sewing-machine' }],
+    nextQuestions: ['serger-vs-sewing-machine','sewing-machine-for-denim-and-canvas','best-sewing-embroidery-machine-for-beginners'],
+    faq: [{ q: 'Do cosplay makers need embroidery?', a: 'Only if patches, emblems, monograms, or decorative stitched detail are frequent. General costume construction needs a sewing machine first.' }]
+  },
+  {
+    slug: 'sewing-machine-for-alterations', title: 'Sewing Machine for Alterations',
+    bluf: 'Alterations need reliable straight stitch, zigzag, buttonholes, zipper handling, blind hems, free-arm access, and fabric versatility. Most alteration work does not require embroidery; it requires control, visibility, and consistent stitches on many fabric types.',
+    buyerQuestion: 'What sewing machine is best for alterations?', intent: 'choose', cluster: 'projects', lastUpdated: '2026-06-21',
+    recommendation: 'Choose a dependable sewing-only machine before paying for embroidery. Prioritize buttonhole quality, zipper feet, blind hem options, free arm, and local service support.',
+    table: { columns: ['Alteration task','Feature needed','Why'], rows: [
+      ['Pants hems','Blind hem / straight stitch control','Clean finish and repeatability.'],
+      ['Zippers','Zipper foot and needle position control','Allows close stitching beside zipper teeth.'],
+      ['Taking in seams','Straight stitch and fabric control','Most alteration work is controlled seam work.'],
+      ['Knits','Stretch stitch or zigzag','Prevents popped seams on stretchy fabric.'],
+      ['Cuffs and sleeves','Free arm','Helps maneuver small circular areas.']
+    ]},
+    sections: [
+      { heading: 'Alteration machines should be boring in a good way', body: 'The best alteration machine is predictable. It feeds fabric cleanly, makes stable stitches, and supports common feet. Built-in embroidery designs do not help with hemming pants or replacing zippers.' },
+      { heading: 'Buttonholes and zippers deserve attention', body: 'If a buyer will alter garments, buttonhole consistency and zipper-foot compatibility matter more than decorative stitch count. These are the tasks that show poor control quickly.' },
+      { heading: 'Fabric range matters', body: 'Alterations may involve denim one day and lightweight polyester the next. A good alteration machine should handle multiple fabric weights with correct needle, thread, presser foot, and tension setup.' }
+    ],
+    sources: [{ label: 'Brother fabric/thread/needle matching guidance', url: 'https://help.brother-usa.com/app/answers/detail/a_id/144041/~/combination-of-fabric,-thread,-and-needle-to-use' }, { label: 'Brother sewing machine category', url: 'https://www.brother-usa.com/home/sewing-embroidery' }],
+    nextQuestions: ['automatic-vs-computerized-sewing-machine','sewing-machine-needle-sizes','used-vs-new-sewing-machine'],
+    faq: [{ q: 'Do I need an embroidery machine for alterations?', a: 'No. Alterations usually need a reliable sewing machine, correct feet, and fabric control rather than embroidery features.' }]
+  },
+  {
+    slug: 'automatic-vs-computerized-sewing-machine', title: 'Mechanical vs Computerized Sewing Machine',
+    bluf: 'Mechanical sewing machines are simpler, tactile, and often easier to understand; computerized machines add speed control, needle positioning, stitch menus, and convenience features. Choose mechanical for simplicity and budget, computerized for control features that help learning and precision.',
+    buyerQuestion: 'Should I buy a mechanical or computerized sewing machine?', intent: 'compare', cluster: 'machine-types', lastUpdated: '2026-06-21',
+    recommendation: 'A beginner can succeed with either. If budget allows, computerized speed control and needle-down positioning are genuinely useful; if budget is tight, a solid mechanical machine is better than a cheap feature-heavy machine.',
+    table: { columns: ['Factor','Mechanical','Computerized'], rows: [
+      ['Controls','Dials and levers','Buttons, screen, stitch menus'],
+      ['Learning feel','Tactile and simple','More features to learn but more precision options'],
+      ['Useful features','Durability, simplicity, lower cost','Speed control, needle stop, stitch selection, memory'],
+      ['Repair/service','Often simpler','May require more electronic diagnostics'],
+      ['Best buyer','Budget-conscious or simplicity-first','Precision/control-first beginner or frequent sewer']
+    ]},
+    sections: [
+      { heading: 'Computerized does not mean professional', body: 'Computerized machines can be beginner-friendly because they add speed limits, needle positioning, and clear stitch selection. But a poor computerized machine is not better than a well-built mechanical machine.' },
+      { heading: 'Mechanical machines teach fundamentals', body: 'Mechanical controls can make stitch length, width, and tension feel more direct. They are often a good fit for buyers who want fewer menus and a lower price.' },
+      { heading: 'Match features to actual projects', body: 'Quilters may value needle-down and speed control. Alteration-focused buyers may value buttonholes and zipper control. Heavy-fabric buyers may value motor and feed more than electronics.' }
+    ],
+    sources: [{ label: 'Brother sewing machine category', url: 'https://www.brother-usa.com/home/sewing-embroidery' }, { label: 'SINGER machine category and machine finder', url: 'https://www.singer.com/' }],
+    nextQuestions: ['best-sewing-embroidery-machine-for-beginners','sewing-machine-for-alterations','used-vs-new-sewing-machine'],
+    faq: [{ q: 'Are computerized sewing machines harder for beginners?', a: 'Not always. Some are easier because speed control and needle positioning reduce mistakes. The best choice depends on interface clarity and project needs.' }]
+  },
+  {
+    slug: 'sewing-machine-maintenance', title: 'Sewing Machine Maintenance Basics',
+    bluf: 'Basic sewing machine maintenance means removing lint, changing dull needles, using suitable thread, keeping the bobbin area clean, and following the manual for oiling or service. Do not oil a modern machine unless the manual tells you where and how.',
+    buyerQuestion: 'How do I maintain a sewing machine?', intent: 'learn', cluster: 'troubleshooting', lastUpdated: '2026-06-21',
+    recommendation: 'After every few projects, clean lint and replace the needle. For oiling, timing, or internal service, follow the model manual or use an authorized technician.',
+    table: { columns: ['Maintenance task','Frequency','Why'], rows: [
+      ['Replace needle','After major projects or when stitch quality drops','Dull/bent needles cause skipped stitches and fabric damage.'],
+      ['Brush lint from bobbin/feed area','Regularly, especially after fuzzy fabric','Lint interferes with feeding and stitch formation.'],
+      ['Use quality thread','Always','Bad thread sheds lint and breaks.'],
+      ['Oil only if manual specifies','Model-specific','Wrong oiling can damage modern machines.'],
+      ['Professional service','Based on use and symptoms','Timing and internal adjustments require expertise.']
+    ]},
+    sections: [
+      { heading: 'Needle replacement is maintenance', body: 'Many stitch problems are caused by worn, bent, or wrong needles. Replacing the needle is cheap, fast, and should happen before assuming the machine needs repair.' },
+      { heading: 'Lint builds up invisibly', body: 'Fuzzy fabric, thread, and batting can leave lint around the bobbin case and feed area. Cleaning visible lint helps prevent feed and stitch issues.' },
+      { heading: 'Manuals matter for oiling', body: 'Older machines may require oiling; many modern machines are not user-oiled in the same way. The buyer should follow the exact model manual rather than generic internet advice.' }
+    ],
+    sources: [{ label: 'Brother support resources', url: 'https://www.brother-usa.com/support' }, { label: 'Brother fabric/thread/needle guidance', url: 'https://help.brother-usa.com/app/answers/detail/a_id/144041/~/combination-of-fabric,-thread,-and-needle-to-use' }],
+    nextQuestions: ['sewing-machine-needle-sizes','sewing-machine-warranty-and-service','used-vs-new-sewing-machine'],
+    faq: [{ q: 'Should I oil my sewing machine?', a: 'Only if the manual says to and shows where. Many modern machines should not be oiled generically by the user.' }]
+  },
+  {
+    slug: 'used-vs-new-sewing-machine', title: 'Used vs New Sewing Machine',
+    bluf: 'A used sewing machine can be a better value if it is complete, serviced, and appropriate for your projects. A new machine is safer for beginners who need a warranty, return window, current accessories, and support.',
+    buyerQuestion: 'Should I buy a used or new sewing machine?', intent: 'compare', cluster: 'buying', lastUpdated: '2026-06-21',
+    recommendation: 'Buy new if you are a first-time buyer without a technician or experienced sewist helping you inspect. Consider used when the machine is serviced, testable, and from a reputable dealer or owner.',
+    table: { columns: ['Factor','Used machine','New machine'], rows: [
+      ['Price','Often lower for better build quality','Higher upfront but predictable'],
+      ['Warranty','May be none or limited','Manufacturer/dealer support'],
+      ['Accessories','Can be missing or hard to replace','Usually complete starter set'],
+      ['Risk','Condition, timing, hidden damage','Lower if bought from reputable seller'],
+      ['Best buyer','Experienced or has inspection help','Beginner who needs support']
+    ]},
+    sections: [
+      { heading: 'Used is best when condition is known', body: 'A high-quality used machine can outperform a cheap new one, but only if it is working properly. The buyer should test stitches, reverse, bobbin winding, feed, buttonholes if relevant, and accessory completeness.' },
+      { heading: 'New reduces uncertainty', body: 'A new machine gives a return window, warranty, manual, included feet, and easier support. That matters when the buyer cannot tell whether problems are user error or machine condition.' },
+      { heading: 'Dealer-used is different from mystery-used', body: 'A serviced used machine from a reputable dealer can be a strong middle ground. An untested marketplace machine may still be fine, but the risk is much higher.' }
+    ],
+    sources: [{ label: 'Brother support resources', url: 'https://www.brother-usa.com/support' }, { label: 'Sewing Machines Plus service and machine categories', url: 'https://sewingmachinesplus.com/' }],
+    nextQuestions: ['sewing-machine-warranty-and-service','automatic-vs-computerized-sewing-machine','sewing-machine-maintenance'],
+    faq: [{ q: 'Is a vintage sewing machine better?', a: 'Sometimes, especially for straight stitching and durability. But beginners should consider parts, service access, missing accessories, and whether it fits current project needs.' }]
+  },
+  {
+    slug: 'sewing-machine-warranty-and-service', title: 'Sewing Machine Warranty and Service',
+    bluf: 'Warranty and service access matter because sewing machines are mechanical tools that can need timing, adjustment, parts, and user support. A slightly less flashy machine from a serviceable brand or dealer can be the better long-term buy.',
+    buyerQuestion: 'How important is warranty and service access?', intent: 'learn', cluster: 'buying', lastUpdated: '2026-06-21',
+    recommendation: 'Before buying, check who handles warranty, where service happens, what parts/accessories are available, and whether local help exists. Do this before comparing decorative stitch counts.',
+    table: { columns: ['Service factor','Why it matters','What to ask'], rows: [
+      ['Warranty handling','Determines support path after failure','Is warranty through dealer, manufacturer, or marketplace seller?'],
+      ['Local technician/dealer','Reduces downtime and shipping risk','Who can service this model near me?'],
+      ['Parts/accessories','Keeps machine usable long term','Are feet, bobbins, hoops, and manuals easy to get?'],
+      ['Return window','Protects beginners from bad fit','Can I return it after testing basic projects?'],
+      ['Support documentation','Reduces user-error frustration','Is the manual and support page clear?']
+    ]},
+    sections: [
+      { heading: 'A sewing machine is not a disposable gadget', body: 'Even a home sewing machine has moving parts, timing, tension, feed systems, needles, and accessories. Support matters because a machine can be technically fine but unusable to a beginner without help.' },
+      { heading: 'Dealer support can beat a lower price', body: 'A cheaper online listing may be less useful if warranty support is unclear or service requires expensive shipping. A dealer-backed purchase can be worth more when the buyer needs setup help or repairs.' },
+      { heading: 'Accessory availability protects the purchase', body: 'Embroidery hoops, presser feet, bobbins, needles, manuals, and software support all affect the life of the machine. Check availability before buying an obscure model.' }
+    ],
+    sources: [{ label: 'Brother support resources', url: 'https://www.brother-usa.com/support' }, { label: 'Sewing Machines Plus service and repair category', url: 'https://sewingmachinesplus.com/' }, { label: 'Quality Sewing service/support presence', url: 'https://www.qualitysewing.com/' }],
+    nextQuestions: ['used-vs-new-sewing-machine','sewing-machine-maintenance','best-sewing-embroidery-machine-for-beginners'],
+    faq: [{ q: 'Should I buy from a dealer or the cheapest listing?', a: 'If you are new, dealer support and clear warranty handling can be worth more than a small price difference.' }]
+  }
+);

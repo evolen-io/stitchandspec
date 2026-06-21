@@ -1,25 +1,53 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { researchPages } from '../data/pages';
-import { merchants } from '../data/affiliates';
+const featured = researchPages.filter((page) => ['best-sewing-embroidery-machine-for-beginners','embroidery-hoop-size-explained','brother-se700-vs-se2000','what-supplies-do-you-need-for-machine-embroidery','sewing-machine-for-denim-and-canvas','embroidery-machine-for-small-business'].includes(page.slug));
+const clusters = Object.groupBy(researchPages, (page) => page.cluster);
 ---
-<BaseLayout title="Stitch & Spec | Sewing and Embroidery Machine Research">
-  <section class="hero">
-    <p class="eyebrow">Evolen prototype · citation-ready buyer research</p>
-    <h1>Sewing and embroidery machine answers without affiliate-blog noise.</h1>
-    <p class="lead">This site maps buyer questions into direct answers, comparison tables, source trails, and next-question links so search engines and AI systems can cite the clearest answer.</p>
+<BaseLayout title="Stitch & Spec | Sewing and Embroidery Machine Research" description="Clear sewing and embroidery machine buying guidance, comparison tables, and project-first research for real buyers.">
+  <section class="hero home-hero">
+    <div class="hero-copy">
+      <p class="kicker">Independent sewing machine research</p>
+      <h1>Choose the right sewing or embroidery machine for the work you actually make.</h1>
+      <p class="lead">Stitch & Spec turns confusing machine specs into practical buyer decisions: hoop size, fabric handling, stitch control, stabilizers, software, service access, and upgrade risk.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="/best-sewing-embroidery-machine-for-beginners/">Start with the beginner guide</a>
+        <a class="button secondary" href="/research-graph/">Browse the research map</a>
+      </div>
+    </div>
+    <aside class="hero-panel" aria-label="Research promise">
+      <span class="panel-label">How we evaluate</span>
+      <ul>
+        <li>Project fit before brand hype</li>
+        <li>Decision tables over vague rankings</li>
+        <li>Source trails and update dates</li>
+        <li>Clear next questions for each buyer path</li>
+      </ul>
+    </aside>
   </section>
-  <section>
-    <h2>Start with the buyer question map</h2>
-    <div class="grid">
-      {researchPages.slice(0, 12).map((page) => <a class="card" href={`/${page.slug}/`}><strong>{page.title}</strong><span>{page.buyerQuestion}</span></a>)}
+
+  <section class="section-block">
+    <div class="section-heading-row">
+      <p class="kicker">Start here</p>
+      <h2>Most useful guides for first-time buyers</h2>
+    </div>
+    <div class="grid feature-grid">
+      {featured.map((page) => <a class="card feature-card" href={`/${page.slug}/`}><span class="card-cluster">{page.cluster.replaceAll('-', ' ')}</span><strong>{page.title}</strong><span>{page.bluf}</span></a>)}
     </div>
   </section>
-  <section>
-    <h2>Affiliate data layer status</h2>
-    <table>
-      <thead><tr><th>Merchant</th><th>Network</th><th>Commission</th><th>Cookie</th><th>Status</th></tr></thead>
-      <tbody>{merchants.map((m) => <tr><td>{m.name}</td><td>{m.network}</td><td>{m.commission}</td><td>{m.cookie}</td><td>{m.accessibility}</td></tr>)}</tbody>
-    </table>
+
+  <section class="section-block warm-panel">
+    <div class="section-heading-row">
+      <p class="kicker">Buyer paths</p>
+      <h2>Find the guide that matches your project</h2>
+    </div>
+    <div class="cluster-list">
+      {Object.entries(clusters).map(([cluster, pages]) => (
+        <section class="cluster-card">
+          <h3>{cluster.replaceAll('-', ' ')}</h3>
+          <ul>{pages?.slice(0, 5).map((page) => <li><a href={`/${page.slug}/`}>{page.title}</a></li>)}</ul>
+        </section>
+      ))}
+    </div>
   </section>
 </BaseLayout>

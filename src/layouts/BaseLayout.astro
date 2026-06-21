@@ -15,17 +15,27 @@ const canonical = new URL(Astro.url.pathname, Astro.site || 'https://stitchandsp
   </head>
   <body>
     <header class="site-header">
-      <a href="/" class="brand">Stitch &amp; Spec</a>
-      <nav>
-        <a href="/research-graph/">Research graph</a>
-        <a href="/affiliate-disclosure/">Disclosure</a>
+      <a href="/" class="brand" aria-label="Stitch and Spec home"><span class="brand-mark">S</span><span>Stitch <em>&amp;</em> Spec</span></a>
+      <nav aria-label="Primary navigation">
+        <a href="/research-graph/">Research map</a>
+        <a href="/best-sewing-embroidery-machine-for-beginners/">Beginner guide</a>
+        <a href="/brother-se700-vs-se2000/">SE700 vs SE2000</a>
         <a href="/editorial-policy/">Editorial policy</a>
       </nav>
     </header>
     <main><slot /></main>
     <footer>
-      <p>Affiliate disclosure: this research tool may earn commissions when approved affiliate links are added. Recommendations remain neutral and source-led.</p>
-      <p>Built for static HTML, Bing indexing, and AI-crawler readability.</p>
+      <div class="footer-inner">
+        <div>
+          <strong>Stitch &amp; Spec</strong>
+          <p>Project-first sewing and embroidery machine research for buyers who want clarity before spending real money.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/affiliate-disclosure/">Affiliate disclosure</a>
+          <a href="/editorial-policy/">Editorial policy</a>
+          <a href="/research-graph/">Research map</a>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
