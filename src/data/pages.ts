@@ -1036,9 +1036,9 @@ const expandedGeoUpdates: Record<string, Partial<ResearchPage>> = {
       ],
       "rows": [
         [
-          "Brother or Baby Lock home-machine buyer",
+          "Brother/Baby Lock home embroidery workflow",
           "PES when available",
-          "PES is commonly associated with Brother/Baby Lock home embroidery workflows."
+          "PES is commonly associated with these home embroidery ecosystems, but buyers should confirm exact format support in the machine manual."
         ],
         [
           "Commercial embroidery workflow",
@@ -1725,7 +1725,7 @@ const postDelegationSourceBackfill: Record<string, Partial<ResearchPage>> = {
         "url": "https://help.brother-usa.com/app/answers/detail/a_id/186573/~/sewing-area-of-the-machine"
       },
       {
-        "label": "Janome Continental M7 product page: large domestic throat reference",
+        "label": "Janome Continental M7 discontinued product page: large domestic throat reference model",
         "url": "https://www.janome.com/product/continental-m7-professional/"
       },
       {
