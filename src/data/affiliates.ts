@@ -221,5 +221,38 @@ export const products: Product[] = [
     },
     status: 'active',
     facts: { model: 'Moxie', throat: '15 in', type: 'longarm quilting', audience: 'longarm quilting' }
+  },
+  {
+    slug: 'madeira-embroidery-thread',
+    name: 'Madeira Embroidery Thread',
+    category: 'embroidery thread',
+    merchantIds: ['sewing-machines-plus'],
+    affiliateUrlByMerchant: {
+      'sewing-machines-plus': 'https://www.awin1.com/cread.php?awinmid=85561&awinaffid=2957637&ued=https%3A%2F%2Fsewingmachinesplus.com%2Fcollections%2Fbrands-madeira'
+    },
+    status: 'active',
+    facts: { type: 'embroidery thread collection', linkKey: 'Madeira Embroidery Thread collection' }
+  },
+  {
+    slug: 'brother-pe-design-lite',
+    name: 'Brother PE-DESIGN Lite',
+    category: 'embroidery software',
+    merchantIds: ['sewing-machines-plus'],
+    affiliateUrlByMerchant: {
+      'sewing-machines-plus': 'https://www.awin1.com/cread.php?awinmid=85561&awinaffid=2957637&ued=https%3A%2F%2Fsewingmachinesplus.com%2Fproducts%2Fpe-design-lite'
+    },
+    status: 'active',
+    facts: { type: 'embroidery editing software', linkKey: 'PE-DESIGN Lite software product page' }
+  },
+  {
+    slug: 'brother-pe-design-11',
+    name: 'Brother PE-DESIGN 11',
+    category: 'embroidery software',
+    merchantIds: ['sewing-machines-plus'],
+    affiliateUrlByMerchant: {
+      'sewing-machines-plus': 'https://www.awin1.com/cread.php?awinmid=85561&awinaffid=2957637&ued=https%3A%2F%2Fsewingmachinesplus.com%2Fproducts%2Fbro-pe-design-11'
+    },
+    status: 'active',
+    facts: { type: 'embroidery digitizing software', linkKey: 'PE-DESIGN 11 software product page' }
   }
 ];

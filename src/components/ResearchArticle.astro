@@ -30,7 +30,9 @@ const sourceLabels = normalizeProductText(page.sources.map((source) => source.la
 const affiliateProducts = products.filter((product) => {
   const url = product.affiliateUrlByMerchant['sewing-machines-plus'];
   if (!url) return false;
-  const candidates = [product.name, product.facts.model].map(normalizeProductText).filter((candidate) => candidate.length > 2);
+  const candidates = (product.facts.linkKey ? [product.facts.linkKey] : [product.name, product.facts.model])
+    .map(normalizeProductText)
+    .filter((candidate) => candidate.length > 2);
   return candidates.some((candidate) => sourceLabels.includes(candidate));
 });
 const visualByCluster = {

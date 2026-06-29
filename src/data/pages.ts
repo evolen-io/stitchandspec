@@ -1637,6 +1637,10 @@ const postDelegationSourceBackfill: Record<string, Partial<ResearchPage>> = {
   "embroidery-software-for-beginners": {
     "sources": [
       {
+        "label": "Brother PE-DESIGN Lite software product page",
+        "url": "https://sewingmachinesplus.com/products/pe-design-lite"
+      },
+      {
         "label": "Brother PE-DESIGN 11 product page: digitizing software, built-in designs, PhotoStitch, ScanNCut workflow",
         "url": "https://www.brother-usa.com/products/pedesign11"
       },
@@ -1665,6 +1669,10 @@ const postDelegationSourceBackfill: Record<string, Partial<ResearchPage>> = {
   "embroidery-file-formats": {
     "sources": [
       {
+        "label": "Brother PE-DESIGN 11 software product page",
+        "url": "https://sewingmachinesplus.com/products/bro-pe-design-11"
+      },
+      {
         "label": "Brother Design Database Transfer support: PES, PHC, PHX, DST preview/transfer context",
         "url": "https://support.brother.com/g/s/hf/pcapp_info/ddt/en/index.html?prod=WLAN"
       },
@@ -1692,6 +1700,10 @@ const postDelegationSourceBackfill: Record<string, Partial<ResearchPage>> = {
   },
   "embroidery-thread-types": {
     "sources": [
+      {
+        "label": "Madeira Embroidery Thread collection",
+        "url": "https://sewingmachinesplus.com/collections/brands-madeira"
+      },
       {
         "label": "Madeira Polyneon polyester machine embroidery thread",
         "url": "https://www.madeirausa.com/polyneon/"
@@ -2601,6 +2613,10 @@ const stephPhaseFixes: Record<string, Partial<ResearchPage>> = {
       }
     ],
     "sources": [
+      {
+        "label": "Madeira Embroidery Thread collection",
+        "url": "https://sewingmachinesplus.com/collections/brands-madeira"
+      },
       {
         "label": "Brother introduction to embroidery stabilizers",
         "url": "https://sewingcraft.brother.eu/en/blog/embroidery/2022/an-introduction-to-stabilisers-for-machine-embroidery"
