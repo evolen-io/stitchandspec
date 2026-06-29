@@ -1,0 +1,39 @@
+---
+import type { Product } from '../data/affiliates';
+
+type Props = {
+  products: Product[];
+};
+
+const { products } = Astro.props as Props;
+---
+
+{products.length > 0 && (
+  <section class="content-panel affiliate-product-card" aria-label="Retailer availability">
+    <div class="affiliate-product-heading">
+      <span class="section-label">Retailer availability</span>
+      <h2>Machines referenced on this page</h2>
+    </div>
+    <div class="affiliate-product-grid">
+      {products.map((product) => (
+        <article class="affiliate-product">
+          <div>
+            <h3>{product.name}</h3>
+            {product.facts.type && <p>{product.facts.type}</p>}
+          </div>
+          <a
+            class="button secondary"
+            href={product.affiliateUrlByMerchant['sewing-machines-plus']}
+            rel="sponsored nofollow noopener"
+            target="_blank"
+          >
+            Check availability
+          </a>
+        </article>
+      ))}
+    </div>
+    <p class="affiliate-product-note">
+      Retailer links may be affiliate links. Read the <a href="/affiliate-disclosure/">affiliate disclosure</a>.
+    </p>
+  </section>
+)}

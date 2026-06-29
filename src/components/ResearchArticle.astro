@@ -1,4 +1,7 @@
 ---
+import AffiliateProductList from './AffiliateProductList.astro';
+import { products } from '../data/affiliates';
+
 const { page } = Astro.props;
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -22,6 +25,14 @@ const breadcrumbSchema = {
     { '@type': 'ListItem', position: 3, name: page.title, item: Astro.url.href }
   ]
 };
+const normalizeProductText = (value = '') => value.toLowerCase().replace(/[^a-z0-9]+/g, '');
+const sourceLabels = normalizeProductText(page.sources.map((source) => source.label).join(' '));
+const affiliateProducts = products.filter((product) => {
+  const url = product.affiliateUrlByMerchant['sewing-machines-plus'];
+  if (!url) return false;
+  const candidates = [product.name, product.facts.model].map(normalizeProductText).filter((candidate) => candidate.length > 2);
+  return candidates.some((candidate) => sourceLabels.includes(candidate));
+});
 const visualByCluster = {
   'beginner-buying': 'Machine context',
   'embroidery-basics': 'Hoop and stabilizer notes',
@@ -77,6 +88,8 @@ const visualLabel = visualByCluster[page.cluster] || 'Machine research reference
     <h2>What question does this answer?</h2>
     <p>{page.buyerQuestion}</p>
   </section>
+
+  <AffiliateProductList products={affiliateProducts} />
 
   {page.table ? (
     <section class="content-panel table-card">

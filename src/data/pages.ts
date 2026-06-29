@@ -1597,6 +1597,10 @@ const postDelegationSourceBackfill: Record<string, Partial<ResearchPage>> = {
         "url": "https://www.singer.com/products/singer-heavy-duty-6800c-sewing-machine"
       },
       {
+        "label": "SINGER Heavy Duty 4452 product specifications",
+        "url": "https://www.singer.com/products/singer-heavy-duty-4452-sewing-machine"
+      },
+      {
         "label": "Janome HD-3000 product page: mechanical heavy-duty reference",
         "url": "https://www.janome.com/product/hd-3000/"
       }

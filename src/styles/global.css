@@ -894,6 +894,65 @@ main {
   text-transform: uppercase;
 }
 
+.affiliate-product-card {
+  background: color-mix(in oklch, var(--paper-warm) 70%, white);
+}
+
+.affiliate-product-heading {
+  margin-bottom: var(--space-2);
+}
+
+.affiliate-product-heading h2 {
+  margin: .35rem 0 0;
+  font-size: clamp(1.45rem, 2.8vw, 2rem);
+  line-height: 1.15;
+}
+
+.affiliate-product-grid {
+  display: grid;
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  background: var(--line-strong);
+}
+
+.affiliate-product {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-2);
+  align-items: center;
+  padding: 16px;
+  background: var(--surface);
+}
+
+.affiliate-product h3 {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.affiliate-product p {
+  margin: .25rem 0 0;
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: .86rem;
+  line-height: 1.35;
+}
+
+.affiliate-product .button {
+  min-width: 168px;
+}
+
+.affiliate-product-note {
+  margin: var(--space-2) 0 0;
+  max-width: var(--measure);
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: .84rem;
+  line-height: 1.45;
+}
+
 .table-card {
   padding: 0;
   overflow: hidden;
@@ -1373,6 +1432,15 @@ footer {
 
   .comparison-row {
     grid-template-columns: 1fr;
+  }
+
+  .affiliate-product {
+    grid-template-columns: 1fr;
+  }
+
+  .affiliate-product .button {
+    width: fit-content;
+    min-width: 0;
   }
 }
 
