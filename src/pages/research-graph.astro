@@ -10,11 +10,11 @@ const clusterId = (cluster) => cluster === 'beginner-buying' ? 'guides' : cluste
     <header class="page-hero compact">
       <p class="publication-kicker">Research map</p>
       <h1>Research graph</h1>
-      <p class="lead">The first content cluster is a 25-page buyer-question graph. Every page links to the next practical question instead of ending at a dead affiliate CTA.</p>
+      <p class="lead">Browse 25 sewing and embroidery machine guides by project, material, machine type, and buying decision.</p>
     </header>
     <section class="graph-intro" aria-labelledby="graph-index-heading">
       <h2 id="graph-index-heading">Browse by buyer decision</h2>
-      <p>Use the graph as a table of contents for project-first machine research, comparisons, materials, workflow, and upgrade-risk questions.</p>
+      <p>Use this page to find guides on machine comparisons, materials, workflow, service, and upgrade risk.</p>
     </section>
     {Object.entries(byCluster).map(([cluster, pages]) => (
       <section class="graph-cluster" id={clusterId(cluster)}>

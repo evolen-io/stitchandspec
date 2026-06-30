@@ -42,27 +42,18 @@ const categoryTone = (cluster = '') => {
       <p class="publication-kicker">Stitch &amp; Spec — Independent Sewing &amp; Embroidery Machine Research</p>
       <h1 id="home-title">Find the machine that fits the thing you actually make.</h1>
       <p class="hero-thesis">Research-backed sewing and embroidery machine guides for buyers who want to understand hoop size, fabric handling, stitch control, stabilizers, service access, and upgrade risk before they spend real money.</p>
-      <aside class="hero-method-card" aria-label="How this site works">
-        <span>How this site works</span>
-        <ul>
-          <li>Start with the buyer question.</li>
-          <li>Translate specs into tradeoffs.</li>
-          <li>Structure the answer neutrally.</li>
-        </ul>
-      </aside>
     </div>
 
-    <div class="research-desk" aria-label="Current research desk">
+    <div class="research-desk" aria-label="Start with your project">
       <article class="desk-feature">
-        <p class="desk-label">Current research desk</p>
-        <h2>Choose the machine for the thing you actually make.</h2>
-        <p>Start with the constraint that changes your project: embroidery field, fabric thickness, feed control, repeat hooping, or service path. The guide structure is built to move from anxiety to a practical shortlist.</p>
+        <p class="desk-label">Start with your project</p>
+        <h2>Start with the constraint that limits your project.</h2>
+        <p>Choose by the constraint that changes what you can make: embroidery field, fabric thickness, feed control, repeat hooping, or service access.</p>
         <a class="button primary" href="/best-sewing-embroidery-machine-for-beginners/">Start with the beginner guide</a>
       </article>
 
       <aside class="desk-secondary" aria-label="Research shortcuts">
         <a href="/embroidery-hoop-size-explained/">
-          <span>Secondary guide</span>
           <strong>Embroidery hoop size explained</strong>
           <small>Why 4 × 4, 5 × 7, and larger fields change what fits in one stitch-out.</small>
         </a>
@@ -78,9 +69,7 @@ const categoryTone = (cluster = '') => {
 
   <section class="home-guides" aria-labelledby="guide-listing-title">
     <div class="guide-intro">
-      <p class="publication-kicker">Guide listing</p>
-      <h2 id="guide-listing-title">A curated table of contents, not a stack of identical cards.</h2>
-      <p>The highest-risk buying decision leads. Two compact research notes follow. Supporting guides change format by purpose: feature article, research note, comparison row, and paired reference entries.</p>
+      <h2 id="guide-listing-title">Browse sewing and embroidery machine guides by project, material, and machine type.</h2>
     </div>
 
     <div class="guide-layout">
@@ -89,7 +78,7 @@ const categoryTone = (cluster = '') => {
           <span class:list={["category-cue", categoryTone(leadGuide.cluster)]}>{leadGuide.cluster.replaceAll('-', ' ')}</span>
           <strong>{leadGuide.title}</strong>
           <span>{leadGuide.bluf}</span>
-          <em>Read the lead guide</em>
+          <em>Read the full guide</em>
         </a>
       )}
 

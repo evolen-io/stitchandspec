@@ -71,7 +71,6 @@ const visualLabel = visualByCluster[page.cluster] || 'Machine research reference
         <span class="machine-block hoop-window"></span>
         <span class="stitch-path"></span>
       </div>
-      <figcaption>{visualLabel}</figcaption>
     </figure>
   </header>
 
@@ -80,14 +79,13 @@ const visualLabel = visualByCluster[page.cluster] || 'Machine research reference
       <span class="section-label">Practical recommendation</span>
       <p>{page.recommendation}</p>
       <div class="cta-row">
-        <a class="button primary disabled" aria-disabled="true">Compare matching machines soon</a>
         <a class="button secondary" href="/research-graph/">See related guides</a>
       </div>
     </section>
   )}
 
   <section class="content-panel question-card">
-    <h2>What question does this answer?</h2>
+    <h2>What you're deciding</h2>
     <p>{page.buyerQuestion}</p>
   </section>
 
@@ -121,19 +119,12 @@ const visualLabel = visualByCluster[page.cluster] || 'Machine research reference
 
   <div class="article-body-grid">
     {page.sections?.map((section, index) => (
-      <section class="article-section">
+      <section class="article-section" style={index === 0 ? 'grid-template-columns: 1fr;' : undefined}>
         <div>
           <h2>{section.heading}</h2>
           <p>{section.body}</p>
           {section.bullets && <ul>{section.bullets.map((bullet) => <li>{bullet}</li>)}</ul>}
         </div>
-        {index === 0 && (
-          <figure class="image-slot inline-image-slot" aria-label="Supporting note">
-            <span class="slot-badge">Supporting note</span>
-            <span class="inline-thread"></span>
-            <figcaption>Supporting machine, fabric, hoop, or workflow note.</figcaption>
-          </figure>
-        )}
       </section>
     ))}
   </div>
